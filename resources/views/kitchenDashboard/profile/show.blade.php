@@ -270,7 +270,7 @@ Profile
                         </div><!--end col--> --}}
                     </div><!--end row-->
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-8 m-auto">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="dash-datepick">

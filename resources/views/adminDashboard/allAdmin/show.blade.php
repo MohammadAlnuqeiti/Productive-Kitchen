@@ -49,7 +49,7 @@ all admin
                     <div class="table-responsive">
                         <table class="table mb-0 table-centered">
                             <thead>
-                                <tr>
+                                <tr style="text-align: center">
                                     <th>#</th>
                                     <th>Image</th>
                                     <th>Name</th>
@@ -60,7 +60,7 @@ all admin
                             <tbody>
                                 <?php $i=1?>
                                 @foreach ($data as $value)
-                                    <tr>
+                                    <tr style="text-align: center">
 
 
                                         <td>{{$i}}</td>

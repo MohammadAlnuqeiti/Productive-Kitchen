@@ -58,7 +58,7 @@ all kitchens
                     <div class="">
                         <table id="datatable2" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
-                            <tr>
+                            <tr style="text-align: center">
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -72,7 +72,7 @@ all kitchens
                             <tbody>
                                 <?php $i=1?>
                                 @foreach ($data as $value)
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td>{{$i}}</td>
                                         <td>{{$value->first_name}} {{$value->last_name}}</td>
                                         <td>{{$value->email}}</td>

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Messages
+Products Reviews
 @endsection
 
 @section('css')
@@ -11,7 +11,7 @@ Messages
 @endsection
 
 @section('section_title')
-Meassages
+Products Reviews
 @endsection
 
 @section('title_page1')
@@ -19,8 +19,9 @@ Meassages
 @endsection
 
 @section('title_page2')
-message
+products reviews
 @endsection
+
 
 @section('content')
 
@@ -29,34 +30,31 @@ message
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Website messages</h4>
+                    <h4 class="mt-0 header-title">Products Reviews</h4>
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
                             <tr style="text-align: center">
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Username</th>
+                                <th>Reviews</th>
+                                <th>Product Name</th>
+                                <th>Date</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 ?>
-                                @foreach ($data as $value)
+                                @forelse ($ProductReview as $value)
                                     <tr style="text-align: center">
-
-                                        <th scope="row">{{$i}}</th>
-                                        <td>{{$value->name}}</td>
-                                        <td>{{$value->email}}</td>
-                                        <td>{{$value->phoneNumber}}</td>
-                                        <td>{{$value->subject}}</td>
-                                        <td>{{$value->message}}</td>
-
+                                        <td>{{$value->id}}</td>
+                                        <td>{{$value->user->first_name}} {{$value->user->last_name}}</td>
+                                        <td>{{$value->comment}}</td>
+                                        <td>{{$value->product->name}}</td>
+                                        <?php $date = explode(' ', $value->created_at);?>
+                                        <td> {{$date[0]}}</td>
                                     </tr>
-                                <?php ++$i ?>
-                                @endforeach
+                                @empty
+
+                                @endforelse
                             </tbody>
                         </table><!--end /table-->
                     </div><!--end /tableresponsive-->
@@ -68,6 +66,7 @@ message
     </div> <!-- end row -->
 
 </div>
+
 @endsection
 
 @section('script')

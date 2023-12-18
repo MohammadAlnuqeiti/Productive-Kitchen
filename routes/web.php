@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AllOrdersController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\KitchenController;
+use App\Http\Controllers\Admin\KitchenReviewsController;
 use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\Admin\ProductAdminController;
+use App\Http\Controllers\Admin\ProductsReviewsController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Kitchen\KitchenController as KitchenKitchenController;
@@ -75,13 +78,9 @@ Route::middleware(['auth','admin'])->prefix('admin')->name('admin.')->group(func
     Route::resource('/kitchens',KitchenController::class);
     Route::resource('/products',ProductAdminController::class);
     Route::get('/messages' ,[ContactController::class,'show'])->name('messages');
-    Route::get('/commentsProduct', function () {
-        return view('adminDashboard.product.comments');
-    })->name('commentsProduct');
-    Route::get('/orders', function () {
-        return view('adminDashboard.orders.show');
-    })->name('orders');
-
+    Route::get('/orders' ,[AllOrdersController::class,'index'])->name('orders');
+    Route::get('kitchen__reviews',[KitchenReviewsController::class,'index'])->name('kitchen__reviews');
+    Route::get('products_reviews',[ProductsReviewsController::class,'index'])->name('products_reviews');
 
 });
 
@@ -143,7 +142,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 // routes kitchen dashboard
 
-Route::prefix('kitchen')->name('kitchen.')->group(function () {
+Route::middleware(['auth','CkeckKitchen'])->prefix('kitchen')->name('kitchen.')->group(function () {
 
     Route::get('/',[KitchenKitchenController::class,'index'])->name('index');
     Route::resource('/products',KitchenProductController::class);

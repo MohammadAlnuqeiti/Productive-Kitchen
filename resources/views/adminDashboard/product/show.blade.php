@@ -58,7 +58,7 @@ all prodducts
                     <div class="">
                         <table id="datatable2" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
-                            <tr>
+                            <tr style="text-align: center">
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Kitchen Name</th>
@@ -72,10 +72,10 @@ all prodducts
                             <tbody>
                                 <?php $i=1?>
                                 @foreach ($products as $value)
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td>{{$i}}</td>
                                         <td>{{$value->name}}</td>
-                                        <td>{{$value->user->name}}</td>
+                                        <td>{{$value->user->kitchen->kitchen_name}}</td>
                                         <td>{{$value->category->name}}</td>
                                         <td><a href="{{Route('admin.products.show',$value->id)}}">more details</a></td>
                                         <td>

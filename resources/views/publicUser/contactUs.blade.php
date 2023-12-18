@@ -86,7 +86,7 @@ Contact Us
                             <img src="/userSide/img/icons/10.png" alt="Icon Image">
                         </div>
                         <h3>عنوان البريد الالكتروني</h3>
-                        <p>App201@gmail.com</p>
+                        <p>mohammadalnuqeiti@gmail.com</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -95,7 +95,7 @@ Contact Us
                             <img src="/userSide/img/icons/11.png" alt="Icon Image">
                         </div>
                         <h3>رقم الهاتف</h3>
-                        <p>+962-79020-8181</p>
+                        <p>962-79036-9501+</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -104,7 +104,7 @@ Contact Us
                             <img src="/userSide/img/icons/12.png" alt="Icon Image">
                         </div>
                         <h3>عنوان المكتب</h3>
-                        <p>الأردن،العقبة،App201</p>
+                        <p>الأردن ، العقبة</p>
                     </div>
                 </div>
             </div>

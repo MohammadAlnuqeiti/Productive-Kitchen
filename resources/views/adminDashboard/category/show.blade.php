@@ -57,7 +57,7 @@ all categorios
                     <div class="table-responsive">
                         <table class="table mb-0 table-centered">
                             <thead>
-                            <tr>
+                            <tr style="text-align: center">
 
                                 <th>#</th>
                                 <th>Name</th>
@@ -70,7 +70,7 @@ all categorios
 
                                 <?php $i=1?>
                                 @foreach ($categories as $category)
-                                    <tr>
+                                    <tr style="text-align: center">
 
                                         <td> {{$i}}</td>
                                         <td>

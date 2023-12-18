@@ -11,7 +11,7 @@ Orders
 @endsection
 
 @section('section_title')
-
+All Orders
 @endsection
 
 @section('title_page1')
@@ -19,7 +19,7 @@ Orders
 @endsection
 
 @section('title_page2')
-
+all orders
 @endsection
 
 @section('content')
@@ -29,39 +29,38 @@ Orders
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Hoverable rows</h4>
-                    <p class="text-muted mb-3">
-                        Use <code>.table-striped</code> to add zebra-striping to any table row
-                        within the <code>&lt;tbody&gt;</code>.
-                    </p>
+                    <h4 class="mt-0 header-title">All Orders</h4>
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
+                                <tr style="text-align: center">
+                                    <th class="border-top-0">#</th>
+                                    <th class="border-top-0">Date and Time</th>
+                                    <th class="border-top-0">Status</th>
+                                    <th class="border-top-0">Total Price</th>
+                                    <th class="border-top-0">Received Date</th>
+                                    <th class="border-top-0">Received Time</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                                @forelse ($orders as $order)
+                                <tr style="text-align: center">
+                                    <td>{{$order->id}}</td>
+                                    <td>{{$order->created_at}}</td>
+                                @if ($order->status == 'pending')
+                                    <td>  <span class="badge badge-md badge-boxed badge-soft-warning"> قيد المعالجة </span></td>
+                                @elseif ($order->status == 'accepted')
+                                    <td>  <span class="badge badge-md badge-boxed badge-soft-success"> تمت الموافقة </span></td>
+                                @else
+                                    <td>  <span class="badge badge-md badge-boxed badge-soft-danger"> تم الرفض </span></td>
+                                @endif
+                                    <?php $date = explode(' ', $order->checkout->received_date);?>
+                                    <td>{{$order->total_price}} JD</td>
+                                    <td> {{$date[0]}}</td>
+                                    <td> {{$date[1]}}</td>
+                                </tr>
+                                @empty
+                                @endforelse
                             </tbody>
                         </table><!--end /table-->
                     </div><!--end /tableresponsive-->

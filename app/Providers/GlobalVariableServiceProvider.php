@@ -29,9 +29,9 @@ class GlobalVariableServiceProvider extends ServiceProvider
 
             // Set your global variables here
             $kitchen_id = auth()->user()->id;
-            $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+            $pendingOrderss = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
-            view()->share('pendingOrders', $pendingOrders);
+            view()->share('pendingOrders', $pendingOrderss);
             }
     }
 }

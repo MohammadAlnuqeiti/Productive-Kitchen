@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function admin(){
 
         // To display the admin in the table
-// test
+        // test
         $data=User::where('role','admin')->get();
         return view('adminDashboard.allAdmin.show',['data'=>$data]);
 

@@ -16,10 +16,10 @@ class KitchenController extends Controller
     public function index()
     {
         // $pendingOrders = view()->shared('pendingOrders');
-        // $kitchen_id = auth()->user()->id;
-        // $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
-        // return view('kitchenDashboard.index',['pendingOrders'=>$pendingOrders]);
-        return view('kitchenDashboard.index');
+
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+        return view('kitchenDashboard.index',['pendingOrders'=>$pendingOrders]);
 
     }
 

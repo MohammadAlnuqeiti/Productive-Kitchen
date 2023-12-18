@@ -46,7 +46,10 @@
                 </ul>
             </li>
             <li>
-                <a href="{{route('admin.commentsProduct')}}"><i class="fas fa-comment-alt"></i><span>Comments</span></a>
+                <a href="{{route('admin.kitchen__reviews')}}"><i class="fas fa-comment-alt"></i><span>kitchens Reviews</span></a>
+            </li>
+            <li>
+                <a href="{{route('admin.products_reviews')}}"><i class="fas fa-comment-alt"></i><span>Products Reviews</span></a>
             </li>
             <li>
                 <a href="{{route('admin.messages')}}"><i class="fas fa-comment"></i><span>Messages</span></a>
