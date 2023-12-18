@@ -17,6 +17,7 @@ use App\Http\Controllers\Kitchen\ReceivingProductController;
 use App\Http\Controllers\Kitchen\EditStatusKitchenController;
 use App\Http\Controllers\Kitchen\EditKitchenDetailsController;
 use App\Http\Controllers\Kitchen\KitchenOrderController;
+use App\Http\Controllers\Kitchen\OrdersController;
 use App\Http\Controllers\User\ProfileUserController;
 use App\Http\Controllers\User\KitchenDetailsController;
 use App\Http\Controllers\User\KitchenReviewController;
@@ -112,11 +113,8 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::resource('/checkout',CheckoutController::class);
     Route::get('/profile/order/{id}',[OrderDetailsController::class,'show'])->name('orderDetails');
 
-    Route::get('/products/{userId}', [UserController::class, 'products'])->name('Products');
-
     Route::get('/register', function () {
         $allProducts = Product::all();
-
         return view('publicUser.register' , [ 'allProducts' => $allProducts ]);
     })->name('register');
     Route::get('/login', function () {
@@ -145,7 +143,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 // routes kitchen dashboard
 
-Route::middleware(['auth'])->prefix('kitchen')->name('kitchen.')->group(function () {
+Route::prefix('kitchen')->name('kitchen.')->group(function () {
 
     Route::get('/',[KitchenKitchenController::class,'index'])->name('index');
     Route::resource('/products',KitchenProductController::class);
@@ -157,7 +155,8 @@ Route::middleware(['auth'])->prefix('kitchen')->name('kitchen.')->group(function
     Route::put('editStatus/{id}',[EditStatusKitchenController::class , 'open'])->name('open');
     Route::put('editStatusClose/{id}',[EditStatusKitchenController::class , 'close'])->name('close');
     Route::put('editDetails/{id}',[EditKitchenDetailsController::class,'update'])->name('editDetails');
-
+    Route::put('orderStatus/{id}',[OrdersController::class,'save'])->name('order');
+    // Route::put('rejectOrder/{id}',[OrdersController::class,'delete'])->name('rejected');
 
 });
 

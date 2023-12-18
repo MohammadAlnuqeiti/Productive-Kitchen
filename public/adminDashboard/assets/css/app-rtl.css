@@ -64,11 +64,11 @@ File: Leftbar
 }
 
 .left-sidenav-menu li > a:hover {
-  color: #7367f0;
+  color: #80B500;
 }
 
 .left-sidenav-menu li > a:hover i {
-  color: #7367f0;
+  color: #80B500;
 }
 
 .left-sidenav-menu li > a i {
@@ -102,7 +102,7 @@ File: Leftbar
 }
 
 .left-sidenav-menu li ul li > a:hover {
-  color: #7367f0;
+  color: #80B500;
 }
 
 .left-sidenav-menu li ul li > a:hover i {
@@ -126,14 +126,14 @@ File: Leftbar
 }
 
 .left-sidenav-menu li.mm-active .mm-active > a {
-  color: #7367f0;
+  color: #80B500;
   background: #ffffff;
   -webkit-box-shadow: 3px 0 20px 0 #f1f5fa;
           box-shadow: 3px 0 20px 0 #f1f5fa;
 }
 
 .left-sidenav-menu li.mm-active .mm-active > a.active {
-  color: #7367f0;
+  color: #80B500;
   background-color: transparent;
 }
 
@@ -167,7 +167,7 @@ File: Leftbar
 }
 
 .left-sidenav-menu li.mm-active .nav-item.active a.nav-link.active i {
-  color: #7367f0;
+  color: #80B500;
 }
 
 .left-sidenav-menu .menu-arrow {
@@ -745,7 +745,7 @@ File: Horizontal-nav
     transition: all .1s ease;
   }
   .topbar .navigation-menu > li .submenu li a:hover {
-    color: #7367f0;
+    color: #80B500;
     background-color: #fdfeff;
   }
   .topbar .navigation-menu > li .submenu li a i {
@@ -1607,10 +1607,10 @@ p {
 
 /*!
  * Waves v0.7.6
- * http://fian.my.id/Waves 
- * 
- * Copyright 2014-2018 Alfiana E. Sibuea and other contributors 
- * Released under the MIT license 
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014-2018 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
  * https://github.com/fians/Waves/blob/master/LICENSE */
 .waves-effect {
   position: relative;

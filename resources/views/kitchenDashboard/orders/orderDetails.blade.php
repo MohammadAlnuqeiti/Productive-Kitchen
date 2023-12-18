@@ -80,10 +80,47 @@ Orders
                         @empty
 
                         @endforelse
+                        {{-- <tr>
+                            <td colspan="2" style="text-align: center">f</td>
+                            <td colspan="2" style="text-align: center">f</td>
+                        </tr> --}}
                         <!--end tr-->
 
                     </tbody>
                 </table> <!--end table-->
+                @if ($order_no->status == 'pending')
+                    <hr>
+                    <h4 class="header-title mt-0 mb-3">الرد على الطلب</h4>
+                    <form action="{{route('kitchen.order',$order_no->id)}}" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="exampleFormControlCategory1">قبول / رفض</label>
+                            <select class="form-control" id="exampleFormControlCategory1" name="status" class="@error('status') is-invalid @enderror" value="{{ old('status')}}">
+                                    <option value="">---</option>
+                                    <option value="accepted">قبول</option>
+                                    <option value="regected">رفض</option>
+                            </select>
+                            @error('status')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">رسالة للعميل (اختياري)</label>
+                            <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="ادخل الرساالة" name="message" class="@error('message') is-invalid @enderror" value="{{ old('message')}}">
+                            @error('message')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-gradient-primary">حفظ</button>
+
+                    </form>
+
+                @endif
+
             </div><!--end /div-->
         </div><!--end card-body-->
     </div><!--end card-->

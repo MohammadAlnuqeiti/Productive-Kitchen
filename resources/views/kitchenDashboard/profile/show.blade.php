@@ -54,16 +54,11 @@ Profile
                                     <div class="button-list btn-social-icon">
                                         <button type="button" class="btn btn-blue btn-circle">
                                             <i class="fab fa-facebook-f"></i>{{ Auth()->user()->Facebook_link }}
-                                        </button>                                    
+                                        </button>
                                         <button type="button" class="btn btn-secondary btn-circle ml-2">
                                             <i class="fab fa-instagram"></i>{{ Auth()->user()->Instagram_link }}
                                         </button>
                                     </div>
-                                    
-
-                                   
-
-
 
                                     {{-- <button type="button" class="btn btn-pink btn-circle  ml-2">
                                         <i class="fab fa-dribbble"></i>
@@ -94,7 +89,7 @@ Profile
             <div class="tab-content detail-list" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="general_detail">
                     <div class="row">
-                        <div class="col-xl-4">
+                        {{-- <div class="col-xl-4">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class=" d-flex justify-content-between">
@@ -272,7 +267,7 @@ Profile
                                     </div>
                                 </div>
                             </div>
-                        </div><!--end col-->
+                        </div><!--end col--> --}}
                     </div><!--end row-->
                     <div class="row">
                         <div class="col-lg-4">
@@ -294,124 +289,11 @@ Profile
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div><!--end col-->
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="p-4 bg-light text-center align-item-center">
-                                        <h1 class="font-weight-semibold">4.8</h1>
-                                        <h4 class="header-title">Overall Rating</h4>
-                                        <ul class="list-inline mb-0 product-review">
-                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-24"></i></li>
-                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-24"></i></li>
-                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-24"></i></li>
-                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star text-warning font-24"></i></li>
-                                            <li class="list-inline-item mr-0"><i class="mdi mdi-star-half text-warning font-24"></i></li>
-                                            <li class="list-inline-item"><small class="text-muted">Total Review (700)</small></li>
-                                        </ul>
-                                    </div>
-                                    <ul class="list-unstyled mt-3">
-                                        <li class="mb-2">
-                                            <span class="text-dark">5 Star</span>
-                                            <small class="float-right text-muted ml-3 font-14">593</small>
-                                            <div class="progress mt-2" style="height:5px;">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 80%; border-radius:5px;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </li>
-                                        <li class="mb-2">
-                                            <span class="text-dark">4 Star</span>
-                                            <small class="float-right text-muted ml-3 font-14">99</small>
-                                            <div class="progress mt-2" style="height:5px;">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 18%; border-radius:5px;" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </li>
-                                        <li class="mb-2">
-                                            <span class="text-dark">3 Star</span>
-                                            <small class="float-right text-muted ml-3 font-14">6</small>
-                                            <div class="progress mt-2" style="height:5px;">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 10%; border-radius:5px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </li>
-                                        <li class="mb-2">
-                                            <span class="text-dark">2 Star</span>
-                                            <small class="float-right text-muted ml-3 font-14">2</small>
-                                            <div class="progress mt-2" style="height:5px;">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 1%; border-radius:5px;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="text-dark">1 Star</span>
-                                            <small class="float-right text-muted ml-3 font-14">0</small>
-                                            <div class="progress mt-2" style="height:5px;">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%; border-radius:5px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="">
-                                        <h3 class="d-inline-block mr-2 mb-1 mb-lg-0">98.5%</h3>
-                                        <h4 class="header-title d-inline-block mr-2 mb-1 mb-lg-0">Satisfied Customer</h4>
-                                        <span class="text-right ml-auto d-inline-block"><i class="far fa-smile font-24 text-warning"></i></span>
-                                    </div>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div><!--end col-->
-                        <div class="col-lg-4">
-                            <div class="card profile-card">
-                                <div class="card-body p-0">
-                                    <div class="media p-3  align-items-center">
-                                        <img src="/adminDashboard/assets/images/users/user-4.jpg" alt="user" class="rounded-circle thumb-xl">
-                                        <div class="media-body ml-3 align-self-center">
-                                            <h5 class="pro-title mt-0">Merri Diamond <span class="badge badge-warning font-10">New Agent</span></h5>
-                                            <p class="mb-2 text-muted">@SaraHopkins.com</p>
-                                            <ul class="list-inline list-unstyled profile-socials mb-0">
-                                                <li class="list-inline-item">
-                                                    <a href="#" class=""><i class="fab fa-facebook-f bg-soft-primary"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" class=""><i class="fab fa-twitter bg-soft-secondary"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" class=""><i class="fab fa-dribbble bg-soft-pink"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="action-btn">
-                                            <a href="" class=""><i class="fas fa-pen text-info mr-2"></i></a>
-                                            <a href="" class=""><i class="fas fa-trash-alt text-danger"></i></a>
-                                        </div>
-                                    </div>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title mt-0 mb-4">Support Status</h4>
-                                    <h2 class="font-weight-semibold">1530</h2>
-                                    <h5>Tickets</h5>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                                        <div class="progress-bar bg-pink" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">5%</div>
-                                    </div>
-                                    <ul class="list-unstyled url-list">
-                                        <li>
-                                            <i class="mdi mdi-circle-medium text-pink"></i>
-                                            <span>Open Tickets</span>
-                                        </li>
-                                        <li>
-                                            <i class="mdi mdi-circle-medium text-primary"></i>
-                                            <span>Resolved Tickets</span>
-                                        </li>
-                                        <li>
-                                            <i class="mdi mdi-circle-medium text-success"></i>
-                                            <span>Unresolved Tickets</span>
-                                        </li>
-                                    </ul>
-                                </div><!--end card-body-->
-                            </div><!--end card-->
-                        </div><!--end col-->
+
                     </div><!--end row-->
                 </div><!--end general detail-->
 
-                
+
 
                 <div class="tab-pane fade" id="portfolio_detail">
                     <div class="row">
@@ -528,8 +410,8 @@ Profile
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
-                                            
-                                            
+
+
                                             <div class="form-group">
                                                 <label for="exampleInputImage1">صورة</label>
                                                 <div class="input-group">

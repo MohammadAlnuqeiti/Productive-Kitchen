@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
 
-// 
+//
 // Custom Variables
-// 
+//
 
 //Background Colors
 $brand-light-bg:            #ffffff;
@@ -16,17 +16,17 @@ $header-light-bg:           #ffffff;
 $header-dark-bg:            #292e40;
 
 // Toptbar Variables
-$bg-navbar:                 #ffffff; 
+$bg-navbar:                 #ffffff;
 $header-item-color:         #7081b9;
-$topbar-search-color:       #696c71; 
+$topbar-search-color:       #696c71;
 $topbar-search-border-color:#e9ecef;
 $vertical-menu-btn-color:   #7081b9;
 $noti-icon-color:           #7081b9;
 
 // Toptbar Dark Variables
-$bg-dark-navbar:                  #292e40; 
-$header-item-dark-color:          #b9c4ce; 
-$topbar-search-dark-color:        #c2cbe2; 
+$bg-dark-navbar:                  #292e40;
+$header-item-dark-color:          #b9c4ce;
+$topbar-search-dark-color:        #c2cbe2;
 $topbar-search-border-dark-color: #343a50;
 $vertical-menu-btn-dark-color:    #c2cbe2;
 $noti-icon-dark-color:            #c2cbe2;
@@ -34,16 +34,16 @@ $noti-icon-dark-color:            #c2cbe2;
 // Leftbar Variables
 $bg-leftbar:                      #ffffff;
 $leftbar-icon-color:              #a6aed4;
-$leftbar-icon-hover-color:        #7367f0;
+$leftbar-icon-hover-color:        #80B500;
 $menu-item-color:                 #5a5c61;
-$menu-item-hover-color:           #7367f0;
+$menu-item-hover-color:           #80B500;
 $menu-sub-item-color:             #5a5c61;
-$menu-sub-item-hover-color:       #7367f0;
+$menu-sub-item-hover-color:       #80B500;
 
 $menu-item-active-color:       $white;
 $menu-item-active-bg-color:    linear-gradient(14deg, $primary 0%, rgba($primary, .6));
 
-$menu-sub-item-active-color:       #7367f0;
+$menu-sub-item-active-color:       #80B500;
 $menu-sub-item-active-bg-color:    transparent;
 $menu-arrow-color:                 #303e67;
 
@@ -56,7 +56,7 @@ $menu-item-dark-color:                 #a9baca;
 $menu-item-hover-dark-color:           #e6e6e6;
 $menu-sub-item-dark-color:             #a9baca;
 $menu-sub-item-hover-dark-color:       #e6e6e6;
-$menu-nav-item-active-dark-color:      #5787ec;
+$menu-nav-item-active-dark-color:      #80B500;
 $menu-arrow-dark-color:                #a9baca;
 
 $menu-item-active-dark-color:       $white;
@@ -75,7 +75,7 @@ $icon-bar-height:             70px;
 $icon-bar-icon-color:         #99b3ec;
 $icon-bar-icon-active-color:  #ffffff;
 
-$leftbar-dark-box-shadow:       0 8px 8px 0 rgba(31, 30, 47, 0.06); 
+$leftbar-dark-box-shadow:       0 8px 8px 0 rgba(31, 30, 47, 0.06);
 
 // new general
 
@@ -111,8 +111,8 @@ $leftbar-dark-box-shadow:       0 8px 8px 0 rgba(31, 30, 47, 0.06);
   // General
   $header-title:              #303e67;
   $leftbar-width:             270px;
-  $leftbar-box-shadow:        0 8px 8px 0 rgba(31, 30, 47, 0.06); 
-  $topbar-box-shadow:         4px 0px 6px rgba(31, 30, 47, 0.06); 
+  $leftbar-box-shadow:        0 8px 8px 0 rgba(31, 30, 47, 0.06);
+  $topbar-box-shadow:         4px 0px 6px rgba(31, 30, 47, 0.06);
   $boxed-body-bg:                      #ffffff;
 
   $apex-grid-color:                #f1f5f9;
@@ -137,7 +137,7 @@ $leftbar-dark-box-shadow:       0 8px 8px 0 rgba(31, 30, 47, 0.06);
 
   $navbar-custom-menu:            #292e40;
   $navbar-icon-color:             #7081b9;
-  $submenu-bg:                    #fdfeff; 
+  $submenu-bg:                    #fdfeff;
   $submenu-border-color:          #d8dee6;
   $menu-dot-color:                #7081b9;
   $mobile-menu-item-color:        #7081b9;
@@ -146,7 +146,7 @@ $leftbar-dark-box-shadow:       0 8px 8px 0 rgba(31, 30, 47, 0.06);
   $topnav-menu-item-hover-color:  #e8e6ff;
   $topnav-menu-item-hover-bg:     #fdfeff;
   $topnav-menu-icon-color:        #307df3;
-// 
+//
 // Bootstrap Variables
 //
 
@@ -216,8 +216,8 @@ $colors: map-merge(
     "cyan":       $cyan,
     "white":      $white,
     "gray-dark":  $gray-800,
-    "beanred":    $beanred,  
-    "gray":       $gray,  
+    "beanred":    $beanred,
+    "gray":       $gray,
   ),
   $colors
 );

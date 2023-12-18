@@ -86,7 +86,7 @@ Login
                             </span>
                         @enderror
                         <div class="btn-wrapper mt-0">
-                            <button class="theme-btn-1 btn btn-block" type="submit">{{ __('Login') }}</button>
+                            <button class="theme-btn-1 btn btn-block" type="submit">{{ __('دخول') }}</button>
                         </div>
                         {{-- <div class="go-to-btn mt-20">
                             <a href="#"><small>FORGOTTEN YOUR PASSWORD?</small></a>

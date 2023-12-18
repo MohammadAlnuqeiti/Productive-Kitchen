@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductDiscountRequest;
 use App\Models\Product;
+use App\Models\Order;
+
 
 class DiscountKitchenController extends Controller
 {
@@ -42,7 +44,7 @@ class DiscountKitchenController extends Controller
      */
     public function store(ProductDiscountRequest $request)
     {
- 
+
         $product_id = $request->product_id;
 
         $data = Product::findOrfail($product_id);
@@ -90,7 +92,7 @@ class DiscountKitchenController extends Controller
      */
     public function update(ProductDiscountRequest $request, $id)
     {
-        
+
         $validated = $request->safe()->only(['name', 'email']);
 
 

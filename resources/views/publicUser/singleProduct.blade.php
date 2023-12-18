@@ -23,20 +23,20 @@ Product Details
       border-radius: 3px 3px 3px 3px;
       height: 47px;
     }
-    
+
     .success-msg {
-  
+
         color: #270;
         background-color: #DFF2BF;
         text-align: center;
-    
+
     }
     .failed-msg{
   font-size: 18px;
         color: rgb(198, 53, 21);
         background-color: #fda6a6;
         text-align: center;
-    
+
     }
     </style>
 @endsection
@@ -150,47 +150,49 @@ Product Details
                                                 <li style="color:#80B500">هذا المنتج لا يتطلب للحجز المسبق.</li>
                                             </ul>
                                         @endif
-                                        
+
                                     </div>
                                 @endif
                                 <div class="ltn__product-details-menu-2">
                                 <hr>
-                                @if ($data['is_active'] == 1)
-                                    @if(!$in_the_basket)
-                                        <form action={{route("user.cart.add",$data['id'])}} method="post">
-                                            @method('HEAD')
-                                            @csrf
-                                            <ul>
+                                @if (auth()->check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                    @if ($data['is_active'] == 1)
+                                        @if(!$in_the_basket)
+                                            <form action={{route("user.cart.add",$data['id'])}} method="post">
+                                                @method('HEAD')
+                                                @csrf
+                                                <ul>
+                                                    <li>
+                                                        <div class="cart-plus-minus">
+                                                            <input type="text" value="1" min="1" name="quantity" class="cart-plus-minus-box">
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="theme-btn-1 btn btn-effect-1"> <i class="fas fa-shopping-cart"></i><span>اضافة الى السلة</span></button>
+                                                    </li>
+                                                </ul>
+                                            </form>
+                                        @else
+
+                                            <ul style="text-align:center">
                                                 <li>
-                                                    <div class="cart-plus-minus">
-                                                        <input type="text" value="1" min="1" name="quantity" class="cart-plus-minus-box">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <button type="submit" class="theme-btn-1 btn btn-effect-1"> <i class="fas fa-shopping-cart"></i><span>اضافة الى السلة</span></button>    
+                                                    <a href="{{route('user.cart')}}"><button type="button" class="theme-btn-1 btn btn-effect-1 ">الذهاب الى سلة المشتريات</button></a>
                                                 </li>
                                             </ul>
-                                        </form>
-                                    @else
 
+                                        @endif
+                                    @else
                                         <ul style="text-align:center">
                                             <li>
-                                                <a href="{{route('user.cart')}}"><button type="button" class="theme-btn-1 btn btn-effect-1 ">الذهاب الى سلة المشتريات</button></a>
+                                                <button type="button" class="theme-btn-1 btn btn-effect-1 ">هذا المنتج غير متاح حالياً</button>
                                             </li>
                                         </ul>
 
                                     @endif
-                                @else
-                                    <ul style="text-align:center">
-                                        <li>
-                                            <button type="button" class="theme-btn-1 btn btn-effect-1 ">هذا المنتج غير متاح حالياً</button>    
-                                        </li>
-                                    </ul>
-
                                 @endif
                                 </div>
 
-                   
+
                             </div>
                         </div>
                     </div>
@@ -213,7 +215,7 @@ Product Details
                         <div class="tab-pane fade" id="liton_tab_details_1_2">
                             <div class="ltn__shop-details-tab-content-inner">
                                 <h4 class="title-2">تعليقات الزبائن</h4>
-       
+
 
                                 <br>
                                 <!-- comment-area -->
@@ -320,9 +322,9 @@ Product Details
 
                                 @endif
 
-                            @empty 
+                            @empty
                                 <p style="text-align:center">لا يوجد منتجات</p>
-                            @endforelse  
+                            @endforelse
                         </ul>
                     </div>
                     <!-- Banner Widget -->
@@ -376,18 +378,20 @@ Product Details
                                                             <i class="far fa-eye"></i>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                                @method('HEAD')
-                                                                @csrf
-                                                                    <input type="hidden" name="quantity" value="1"/>
-                                                                    <button style="border:none;background:none">
-                                                                    <i class="fas fa-shopping-cart"></i>
-                                                                    </button>
-                                                            </form>
-                                                        </a>
-                                                    </li>
+                                                    @if (auth()->check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                        <li>
+                                                            <a href="#">
+                                                                <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                    @method('HEAD')
+                                                                    @csrf
+                                                                        <input type="hidden" name="quantity" value="1"/>
+                                                                        <button style="border:none;background:none">
+                                                                        <i class="fas fa-shopping-cart"></i>
+                                                                        </button>
+                                                                </form>
+                                                            </a>
+                                                        </li>
+                                                    @endif
                                                 </ul>
                                             </div>
                                         </div>
@@ -410,9 +414,9 @@ Product Details
                                     </div>
                                 </div>
                             @endif
-                        @empty 
+                        @empty
                              <p style="text-align:center">لا يوجد منتجات</p>
-                        @endforelse            
+                        @endforelse
                         <!--  -->
         </div>
     </div>

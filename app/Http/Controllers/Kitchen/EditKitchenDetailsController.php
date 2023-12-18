@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Kitchen_Details;
 use Illuminate\Http\Request;
+use App\Models\Order;
+
 
 class EditKitchenDetailsController extends Controller
 {
@@ -17,8 +19,8 @@ class EditKitchenDetailsController extends Controller
 
     $rules = array(
         'kitchen_name' => ['required'],
-        'short_description' => ['required'],       
-        'long_description' => ['required'],       
+        'short_description' => ['required'],
+        'long_description' => ['required'],
     );
     $messages = [
         'kitchen_name.required' => 'حقل  اسم المطبخ  مطلوب ادخاله.',
@@ -26,19 +28,19 @@ class EditKitchenDetailsController extends Controller
         'long_description.required' => 'حقل  تفاصيل المطبخ مطلوب ادخاله.',
     ];
     $validator = Validator::make($request->all(), $rules , $messages);
-    
+
     if ($validator->fails()) {
         return back()->withErrors($validator->errors())->withInput();
     }
 
-    $kitchenDetails->kitchen_name = $request->kitchen_name;  
-    $kitchenDetails->short_description = $request->short_description;  
-    $kitchenDetails->long_description = $request->long_description;  
+    $kitchenDetails->kitchen_name = $request->kitchen_name;
+    $kitchenDetails->short_description = $request->short_description;
+    $kitchenDetails->long_description = $request->long_description;
 
     //  image validation
 
     if($request->file('kitchen_image')){
-        
+
         $rules = array(
             'kitchen_image' =>'required|image|mimes:jpg,png,jpeg,gif|max:2048'
         );

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Kitchen_Details;
 use App\Http\Requests\KitchenDetailsRequest;
 use Illuminate\Http\Request;
+use App\Models\Order;
+
 
 class DetailsKitchenController extends Controller
 {
@@ -20,6 +22,11 @@ class DetailsKitchenController extends Controller
         $kitchenId = Auth()->user()->id;
         $kitchenDetails = Kitchen_Details::where('user_id', $kitchenId)->get();
 
+        //
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        //
         // Return the view with the kitchen details data
         return view('kitchenDashboard.details.index', compact('kitchenDetails'));
     }

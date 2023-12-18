@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Kitchen_Details;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Order;
 
 
 class ReceivingProductController extends Controller
@@ -99,21 +100,21 @@ class ReceivingProductController extends Controller
                 $data->save();
             }
 
-            
+
         }else{
             $rules = array(
                 'duration' => 'required|numeric',
             );
-    
+
             // customize error message
             $messages = [
                 'duration.required' => 'حقل المدة المطلوبة للتوصية على الطلب مطلوب ادخاله.',
                 'duration.numeric' => 'حقل المدة المطلوبة للتوصية على الطلب يجب ان يكون رقم.',
                 // 'duration.max' => 'حقل المدة المطلوبة للتوصية على الطلب يجب ان لا يتعدى خانتين.',
             ];
-    
+
             $validator = Validator::make($request->all(), $rules , $messages);
-    
+
             if ($validator->fails()) {
                 return back()->withErrors($validator->errors());
             }
@@ -129,7 +130,7 @@ class ReceivingProductController extends Controller
                 $data->is_active = 1;
                 $data->save();
             }
-            
+
         }
         return redirect()->route('kitchen.receivingProduct.index')
                         ->with('success', 'تمت العملية بنجاح.');
@@ -146,7 +147,7 @@ class ReceivingProductController extends Controller
         $product=Product::findorFail($id);
         $product->is_active = 0;
         $product->duration_of_product_recommendation = 0;
-        $product->save();   
+        $product->save();
 
         return redirect()->back();
 

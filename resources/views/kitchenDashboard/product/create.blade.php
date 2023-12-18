@@ -38,7 +38,7 @@ Create Product
                             <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="ادخل اسم المنتج" name="name" class="@error('name') is-invalid @enderror" value="{{ old('name')}}">
                             @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
-                           @enderror
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputDescription1"></label>وصف المنتج</label>
@@ -73,7 +73,7 @@ Create Product
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="exampleInputImage1">Image</label>
                             <div class="input-group">

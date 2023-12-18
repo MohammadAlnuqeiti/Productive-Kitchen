@@ -25,7 +25,18 @@ Orders
 @section('content')
 
 
-
+@if(session()->get('success'))
+<div class="card" >
+    <div class="card-body">
+        <div class="alert icon-custom-alert alert-outline-success alert-success-shadow" role="alert" style="margin:0">
+            <i class="mdi mdi-check-all alert-icon"></i>
+            <div class="alert-text">
+                <strong>تمت العملية</strong>  {{ session()->get('success') }}
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body order-list">

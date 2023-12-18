@@ -19,6 +19,7 @@ class KitchenOrderController extends Controller
         $kitchen_id = Auth()->user()->id;
         $orders = Order::where('kitchen_id', $kitchen_id)
                             ->get();
+
         return view('kitchenDashboard.orders.show', compact('orders'));
 
     }
@@ -56,7 +57,10 @@ class KitchenOrderController extends Controller
 
         $order_no = Order::where('id', $id)->first();
 
-        return view('kitchenDashboard.orders.orderDetails',['orders' => $orders , 'order_no' => $order_no]);
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.orders.orderDetails',['orders' => $orders , 'order_no' => $order_no , 'pendingOrders' => $pendingOrders  ]);
 
 
     }

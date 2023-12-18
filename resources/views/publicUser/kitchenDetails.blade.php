@@ -262,12 +262,12 @@ Kitchen Details
                             </div>
                         </div>
                     </div> -->
-                    
+
 
                 </div>
             </div>
         </div>
-        
+
 
         <!-- PRODUCT SLIDER AREA START -->
         <div class="ltn__product-slider-area ltn__product-gutter pb-70">
@@ -302,18 +302,20 @@ Kitchen Details
                                                         <i class="far fa-eye"></i>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                            @method('HEAD')
-                                                            @csrf
-                                                                <input type="hidden" name="quantity" value="1"/>
-                                                                <button style="border:none;background:none">
-                                                                <i class="fas fa-shopping-cart"></i>
-                                                                </button>
-                                                        </form>
-                                                    </a>
-                                                </li>
+                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                    <li>
+                                                        <a href="#">
+                                                            <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                @method('HEAD')
+                                                                @csrf
+                                                                    <input type="hidden" name="quantity" value="1"/>
+                                                                    <button style="border:none;background:none">
+                                                                    <i class="fas fa-shopping-cart"></i>
+                                                                    </button>
+                                                            </form>
+                                                        </a>
+                                                    </li>
+                                                @endif
                                             </ul>
                                         </div>
                                     </div>
@@ -405,18 +407,20 @@ Kitchen Details
                                                                                         <i class="far fa-eye"></i>
                                                                                     </a>
                                                                                 </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                                                            @method('HEAD')
-                                                                                            @csrf
-                                                                                                <input type="hidden" name="quantity" value="1"/>
-                                                                                                <button style="border:none;background:none">
-                                                                                                <i class="fas fa-shopping-cart"></i>
-                                                                                                </button>
-                                                                                        </form>
-                                                                                    </a>
-                                                                                </li>
+                                                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                                                @method('HEAD')
+                                                                                                @csrf
+                                                                                                    <input type="hidden" name="quantity" value="1"/>
+                                                                                                    <button style="border:none;background:none">
+                                                                                                    <i class="fas fa-shopping-cart"></i>
+                                                                                                    </button>
+                                                                                            </form>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                @endif
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -484,18 +488,20 @@ Kitchen Details
                                                                                         <i class="far fa-eye"></i>
                                                                                     </a>
                                                                                 </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                                                            @method('HEAD')
-                                                                                            @csrf
-                                                                                                <input type="hidden" name="quantity" value="1"/>
-                                                                                                <button style="border:none;background:none">
-                                                                                                <i class="fas fa-shopping-cart"></i>
-                                                                                                </button>
-                                                                                        </form>
-                                                                                    </a>
-                                                                                </li>
+                                                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                                                @method('HEAD')
+                                                                                                @csrf
+                                                                                                    <input type="hidden" name="quantity" value="1"/>
+                                                                                                    <button style="border:none;background:none">
+                                                                                                    <i class="fas fa-shopping-cart"></i>
+                                                                                                    </button>
+                                                                                            </form>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                @endif
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -544,7 +550,7 @@ Kitchen Details
         </div>
         <!-- PRODUCT TAB AREA END -->
 
-     
+
     </div>
 </div>
 <!-- TEAM DETAILS AREA END -->

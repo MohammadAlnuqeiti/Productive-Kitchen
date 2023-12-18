@@ -128,7 +128,7 @@ Home
         </div>
         <!-- BANNER AREA END -->
 
-      
+
 
         <!-- BANNER AREA START -->
         <div class="ltn__banner-area mt-120">
@@ -3203,23 +3203,23 @@ Home
                                         </div>
                                     </div>
                                     <div class="product-info">
-                                        <h2 class="product-title"><a href="{{ route('user.Products', $product->user_id) }}">{{ $product->name }}</a></h2>
+                                        <h2 class="product-title"><a href="{{route('user.singleProduct',$product->id)}}">{{ $product->name }}</a></h2>
                                         <div class="product-price">
                                             <span>{{ $product->price }} د.أ</span>
                                             <del>{{ $product->price_discount }} د.أ</del>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                             <!-- ltn__product-item -->
                         @endif
                     @endforeach
-                </div> 
+                </div>
             </div>
         </div>
-        
-        
+
+
         <!-- PRODUCT AREA END -->
 
         <!-- VIDEO AREA START -->

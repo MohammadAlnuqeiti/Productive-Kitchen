@@ -118,7 +118,7 @@
                             <p>عند تسجيل الحساب فإنك توافق على :</p>
                             <p><a href="{{route('user.termsAndConditions')}}"> شروط الاستخدام &nbsp; &nbsp; | &nbsp; &nbsp; <a href="{{route('user.privacyPolicy')}}"> و خصوصية الموقع</a></a></p>
                             <div class="go-to-btn mt-50">
-                                <a href="{{Route ('user.login')}}">هل لديك حساب؟  تسجيل الدخول</a>
+                                هل لديك حساب؟<a href="{{Route ('user.login')}}"> تسجيل الدخول </a>
                             </div>
                         </div>
                     </div>

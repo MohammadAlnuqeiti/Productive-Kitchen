@@ -55,7 +55,7 @@ File: Leftbar
                 display: inline-block;
                 font-size: 16px;
                 opacity: 0.9;
-                color: $leftbar-icon-color;
+                color: #80B500;
                 margin-right: 5px;
                 &.ti-control-record{
                     font-size: 8px;
@@ -65,7 +65,7 @@ File: Leftbar
             }
             span{
                 i{
-                    color: $menu-arrow-color;
+                    color: #80B500;
                 }
             }
         }
@@ -83,20 +83,20 @@ File: Leftbar
                     &:hover {
                         color: $menu-sub-item-hover-color;
                         i{
-                            color: $primary; 
+                            color: $primary;
                         }
                     }
                 }
             }
         }
 
-        &.mm-active {            
+        &.mm-active {
             .menu-arrow{
                 i {
                     &:before {
                         content: "\F140";
                     }
-                } 
+                }
             }
             .mm-active a .menu-arrow.left-has-menu{
                 i {
@@ -110,7 +110,7 @@ File: Leftbar
                     &:before {
                         content: "\F142";
                     }
-                }  
+                }
             }
             li a{
                 menu-arrow.left-has-menu {
@@ -129,19 +129,19 @@ File: Leftbar
                     box-shadow: 3px 0 20px 0 $gray-200;
                     &.active{
                         color: $menu-sub-item-active-color;
-                        background-color: transparent;                                                 
+                        background-color: transparent;
                     }
                     i{
                         color: $primary;
-                    }                               
+                    }
                 }
                 .menu-arrow.left-has-menu i:before{
-                    content: "\F140"; 
+                    content: "\F140";
                 }
                 .mm-show{
                     li{
                         a.active{
-                            color: $primary;
+                            color: #80B500;
                         }
                     }
                 }
@@ -149,9 +149,9 @@ File: Leftbar
 
             > a  {
                 color: $menu-item-active-color;
-                background: linear-gradient(14deg, $primary 0%, rgba($primary, .6));
-                box-shadow: 3px 3px 20px 0 rgba($primary, .4);
-                border-radius: 4px; 
+                background: #80B500;
+                box-shadow: 3px 3px 20px 0 rgba(#80B500, .4);
+                border-radius: 4px;
                 i{
                     color: $menu-item-active-color;
                 }
@@ -159,18 +159,18 @@ File: Leftbar
             .nav-item.active{
                 a.nav-link.active{
                     background-color:transparent;
-                    color: $primary;
+                    color: #80B500;
                     i{
-                        color: $menu-item-hover-color; 
+                        color: $menu-item-hover-color;
                     }
                 }
             }
-            
+
         }
-        
+
     }
 
-    
+
     .menu-arrow {
         float: right;
         margin-top: -1px;
@@ -189,12 +189,12 @@ File: Leftbar
         overflow-y: auto;
         z-index: 10;
         bottom: 0;
-        top: 0;   
-        margin-top: 0;     
+        top: 0;
+        margin-top: 0;
     }
     .page-content {
         min-height: 100vh;
-        padding: 0 0 50px 0;        
+        padding: 0 0 50px 0;
     }
 }
 
@@ -202,11 +202,11 @@ File: Leftbar
 .enlarge-menu {
     .left-sidenav{
         display: none;
-    }  
+    }
     .topbar {
         .topbar-left {
             background-color: $bg-navbar;
         }
-    } 
+    }
 }
 

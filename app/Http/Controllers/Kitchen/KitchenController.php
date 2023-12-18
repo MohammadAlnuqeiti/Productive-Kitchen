@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kitchen;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class KitchenController extends Controller
@@ -14,6 +15,10 @@ class KitchenController extends Controller
      */
     public function index()
     {
+        // $pendingOrders = view()->shared('pendingOrders');
+        // $kitchen_id = auth()->user()->id;
+        // $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+        // return view('kitchenDashboard.index',['pendingOrders'=>$pendingOrders]);
         return view('kitchenDashboard.index');
 
     }

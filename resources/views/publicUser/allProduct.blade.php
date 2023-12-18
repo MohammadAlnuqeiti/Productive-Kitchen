@@ -76,7 +76,7 @@ Shop
     border-radius: 3px 3px 3px 3px;
     height: 47px;
 }
-    
+
 .success-msg {
     color: #270;
     background-color: #DFF2BF;
@@ -177,7 +177,7 @@ Shop
                             </div>
                         </li> -->
                         <li>
-                            
+
                             <div class="showing-product-number text-right">
                                 <!-- @if(count($products) <= 9) -->
                                 <!-- @endif -->
@@ -215,18 +215,20 @@ Shop
                                                                 <i class="far fa-eye"></i>
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                                    @method('HEAD')
-                                                                    @csrf
-                                                                        <input type="hidden" name="quantity" value="1"/>
-                                                                        <button style="border:none;background:none">
-                                                                        <i class="fas fa-shopping-cart"></i>
-                                                                        </button>
-                                                                </form>
-                                                            </a>
-                                                        </li>
+                                                        @if (auth()->check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                            <li>
+                                                                <a href="#">
+                                                                    <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                        @method('HEAD')
+                                                                        @csrf
+                                                                            <input type="hidden" name="quantity" value="1"/>
+                                                                            <button style="border:none;background:none">
+                                                                            <i class="fas fa-shopping-cart"></i>
+                                                                            </button>
+                                                                    </form>
+                                                                </a>
+                                                            </li>
+                                                        @endif
                                                     </ul>
                                                 </div>
                                             </div>
@@ -256,7 +258,7 @@ Shop
                         </div>
                     </div>
 
-                    
+
                     <div class="tab-pane fade" id="liton_product_list">
                         <div class="ltn__product-tab-content-inner ltn__product-list-view">
                             <div class="row">
@@ -301,16 +303,18 @@ Shop
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <form action={{route("user.cart.add",$product->id)}} method="post">
-                                                                    @method('HEAD')
-                                                                    @csrf
-                                                                        <input type="hidden" name="quantity" value="1"/>
-                                                                        <button style="border:none;background:none">
-                                                                        <i class="fas fa-shopping-cart"></i>
-                                                                        </button>
-                                                                </form>
-                                                            </a>
+                                                            @if (auth()->check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                                <a href="#">
+                                                                    <form action={{route("user.cart.add",$product->id)}} method="post">
+                                                                        @method('HEAD')
+                                                                        @csrf
+                                                                            <input type="hidden" name="quantity" value="1"/>
+                                                                            <button style="border:none;background:none">
+                                                                            <i class="fas fa-shopping-cart"></i>
+                                                                            </button>
+                                                                    </form>
+                                                                </a>
+                                                            @endif
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -331,7 +335,7 @@ Shop
                     {{$products->links()}}
 
                 </div>
-                
+
             </div>
             <div class="col-lg-4  mb-120">
                 <aside class="sidebar ltn__shop-sidebar">
@@ -355,13 +359,13 @@ Shop
                             <input type="search" name="search" placeholder="ابحث في الكلمات الرئيسية...">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
-                        
+
                         @if (isset($message) && $message)
                             <div class="not-found-message">{{ $message }}</div>
                         @endif
                     </div>
-                    
-                    
+
+
                     <!-- Banner Widget -->
                     <div class="widget ltn__banner-widget">
                         <a href="shop.html"><img src="/userSide/img/shop_design.png" alt="#"></a>
@@ -425,7 +429,7 @@ Shop
     <!-- MODAL AREA END -->
 
 
-    
+
 @endsection
 
 @section('script')

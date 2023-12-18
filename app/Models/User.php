@@ -51,5 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Kitchen_Details::class);
     }
- 
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'user_id'); // 'user_id' is the foreign key
+    }
+
 }

@@ -9,7 +9,7 @@
                 </span>
                 <span>
                     <img src="/adminDashboard/assets/images/logo.png" alt="logo-large" class="logo-lg logo-light">
-                    <img src="/adminDashboard/assets/images/logo-dark.png" alt="logo-large" class="logo-lg" style="height: 2rem;width: 8rem;>
+                    <img src="/adminDashboard/assets/images/logo-dark.png" alt="logo-large" class="logo-lg" style="height: 2rem;width: 8rem;">
                 </span>
             </a>
         </div>
@@ -17,21 +17,8 @@
         <!-- Navbar -->
         <nav class="navbar-custom">
             <ul class="list-unstyled topbar-nav float-right mb-0">
-                <li class="hidden-sm">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="javascript: void(0);" role="button"
-                        aria-haspopup="false" aria-expanded="false">
-                        English <img src="/adminDashboard/assets/images/flags/us_flag.jpg" class="ml-2" height="16" alt=""/> <i class="mdi mdi-chevron-down"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="javascript: void(0);"><span> German </span><img src="/adminDashboard/assets/images/flags/germany_flag.jpg" alt="" class="ml-2 float-right" height="14"/></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Italian </span><img src="/adminDashboard/assets/images/flags/italy_flag.jpg" alt="" class="ml-2 float-right" height="14"/></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> French </span><img src="/adminDashboard/assets/images/flags/french_flag.jpg" alt="" class="ml-2 float-right" height="14"/></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Spanish </span><img src="/adminDashboard/assets/images/flags/spain_flag.jpg" alt="" class="ml-2 float-right" height="14"/></a>
-                        <a class="dropdown-item" href="javascript: void(0);"><span> Russian </span><img src="/adminDashboard/assets/images/flags/russia_flag.jpg" alt="" class="ml-2 float-right" height="14"/></a>
-                    </div>
-                </li>
 
-                <li class="dropdown notification-list">
+                {{-- <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
                         <i class="ti-bell noti-icon"></i>
@@ -48,7 +35,7 @@
                                 <small class="float-right text-muted pl-2">2 min ago</small>
                                 <div class="media">
                                     <div class="avatar-md bg-primary">
-                                       <i class="la la-cart-arrow-down text-white"></i>
+                                        <i class="la la-cart-arrow-down text-white"></i>
                                     </div>
                                     <div class="media-body align-self-center ml-2 text-truncate">
                                         <h6 class="my-0 font-weight-normal text-dark">Your order is placed</h6>
@@ -114,19 +101,17 @@
                             View all <i class="fi-arrow-right"></i>
                         </a>
                     </div>
-                </li>
+                </li> --}}
 
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
-                        <img src="/adminDashboard/assets/images/users/user-1.png" alt="profile-user" class="rounded-circle" />
-                        <span class="ml-1 nav-user-name hidden-sm">Amelia <i class="mdi mdi-chevron-down"></i> </span>
+                        <?php $image = Auth()->user()->image ?>
+                        <img src="{{URL::asset("storage/images/$image")}}" alt="profile-user" class="rounded-circle" />
+                        <span class="ml-1 nav-user-name hidden-sm">{{auth()->user()->first_name}} {{auth()->user()->last_name}} <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i> Profile</a>
-                        <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
-                        <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
-                        <a class="dropdown-item" href="#"><i class="ti-lock text-muted mr-2"></i> Lock screen</a>
+                        <a class="dropdown-item" href="{{route('admin.profile.index')}}"><i class="ti-user text-muted mr-2"></i> Profile</a>
                         <div class="dropdown-divider mb-0"></div>
                         <a class="dropdown-item" href="{{Route('AdminLogout')}}"><i class="ti-power-off text-muted mr-2"></i> Logout</a>
                     </div>
@@ -139,12 +124,12 @@
                         <i class="ti-menu nav-icon"></i>
                     </button>
                 </li>
-                <li class="hide-phone app-search">
+                {{-- <li class="hide-phone app-search">
                     <form role="search" class="">
                         <input type="text" id="AllCompo" placeholder="Search..." class="form-control">
                         <a href=""><i class="fas fa-search"></i></a>
                     </form>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- end navbar-->

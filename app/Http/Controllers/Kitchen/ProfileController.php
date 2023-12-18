@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Order;
+
 
 use Illuminate\Http\Request;
 
@@ -18,7 +20,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        
+
         $id = Auth()->user()->id;
         $kitchen = User::where('id', $id)->get();
         $data = [];
@@ -63,7 +65,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-      // 
+      //
     }
 
     /**
@@ -88,7 +90,7 @@ class ProfileController extends Controller
     {
         $user = User::where('id', $id)->with('kitchen')->firstOrFail();
         return view('kitchenDashboard.profile.edit', ['user' => $user]);
-       
+
     }
 
     /**
@@ -107,25 +109,25 @@ class ProfileController extends Controller
          //  first name and last name validation
          $rules = array(
             'first_name' => ['required'],
-            'last_name' => ['required'],       
+            'last_name' => ['required'],
         );
         $messages = [
             'first_name.required' => 'حقل  الاسم الاول مطلوب ادخاله.',
             'last_name.required' => 'حقل  الاسم الثاني مطلوب ادخاله.',
         ];
         $validator = Validator::make($request->all(), $rules , $messages);
-        
+
         if ($validator->fails()) {
             return back()->withErrors($validator->errors())->withInput();
         }
 
-        $data->first_name = $request->first_name;  
-        $data->last_name = $request->last_name;  
+        $data->first_name = $request->first_name;
+        $data->last_name = $request->last_name;
 
         //  email validation
 
         if($email !== $request->email){
-            
+
             $rules = array(
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             );
@@ -136,7 +138,7 @@ class ProfileController extends Controller
                 'email.unique' => 'الايميل  موجود مسبقا.',
             ];
             $validator = Validator::make($request->all(), $rules , $messages);
-            
+
             if ($validator->fails()) {
                 return back()->withErrors($validator->errors())->withInput();
             }
@@ -145,7 +147,7 @@ class ProfileController extends Controller
         //  phone validation
 
         if($phone !=$request->phone){
-            
+
             $rules = array(
                 'phone' => ['required', 'max:10' ,'min:9','unique:'.User::class],
             );
@@ -155,7 +157,7 @@ class ProfileController extends Controller
                 'phone.unique' => 'رقم الهاتف موجود مسبقا.',
             ];
             $validator = Validator::make($request->all(), $rules , $messages);
- 
+
             if ($validator->fails()) {
                 return back()->withErrors($validator->errors())->withInput();
             }
@@ -165,7 +167,7 @@ class ProfileController extends Controller
         //  image validation
 
         if($request->file('image')){
-    
+
             $rules = array(
                 'image' =>'required|image|mimes:jpg,png,jpeg,gif|max:2048'
             );
@@ -176,11 +178,11 @@ class ProfileController extends Controller
                 'image.max' => ' الصورة يجب ان لا يتجاوز حجمها 2048 .',
             ];
             $validator = Validator::make($request->all(), $rules , $messages);
-    
+
             if ($validator->fails()) {
                 return back()->withErrors($validator->errors())->withInput();
             }
-        
+
             $photoName = $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('public/images', $photoName);
             $data->image=$photoName;
@@ -197,7 +199,7 @@ class ProfileController extends Controller
 
         return redirect()->route('kitchen.profile.index')->with('success', 'تمت عملية التعديل بنجاح.');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.

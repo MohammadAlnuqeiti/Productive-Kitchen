@@ -1,6 +1,6 @@
 //
 // Background-color
-// 
+//
 .bg-black{
   background-color: $black !important;
   color: $white;
@@ -62,7 +62,7 @@
 
 // bg-gradient
 
-.bg-primary-gradient{  
+.bg-primary-gradient{
   background: linear-gradient(14deg, #4d79f6 36%, #39add0 100%);
 }
 .bg-secondary-gradient{
@@ -108,49 +108,49 @@
     color: $primary !important;
     box-shadow: 0px 0px 13px 0px rgba($primary,0.05);
   }
-  
+
   &.badge-soft-secondary{
     background-color: rgba($secondary, 0.15) !important;
     color: $secondary !important;
     box-shadow: 0px 0px 13px 0px rgba($secondary,0.05);
   }
-  
+
   &.badge-soft-success{
     background-color: rgba($success, 0.15) !important;
     color: $success !important;
     box-shadow: 0px 0px 13px 0px rgba($success,0.05);
   }
-  
+
   &.badge-soft-warning{
     background-color: rgba($warning, 0.15) !important;
     color: $warning !important;
     box-shadow: 0px 0px 13px 0px rgba($warning,0.05);
   }
-  
+
   &.badge-soft-info{
     background-color: rgba($info, 0.15) !important;
     color: $info !important;
     box-shadow: 0px 0px 13px 0px rgba($info,0.05);
   }
-  
+
   &.badge-soft-danger{
     background-color: rgba($danger, 0.15) !important;
     color: $danger !important;
     box-shadow: 0px 0px 13px 0px rgba($danger,0.05);
   }
-  
+
   &.badge-soft-pink{
     background-color: rgba($pink, 0.15) !important;
     color: $pink !important;
     box-shadow: 0px 0px 13px 0px rgba($pink,0.05);
   }
-  
+
   &.badge-soft-purple{
     background-color: rgba($purple, 0.15) !important;
     color: $purple !important;
     box-shadow: 0px 0px 13px 0px rgba($purple,0.05);
   }
-  
+
   &.badge-soft-dark{
     background-color: rgba($dark, 0.15) !important;
     color: $dark !important;
@@ -182,9 +182,9 @@
 .shadow-pink{
   box-shadow: 0 6px 20px 0 rgba($pink, .5) !important
 }
-.shadow-purple{
-  box-shadow: 0 6px 20px 0 rgba($purple, .5) !important
-}
+// .shadow-purple{
+//   box-shadow: 0 6px 20px 0 rgba($purple, .5) !important
+// }
 .shadow-orange{
   box-shadow: 0 6px 20px 0 rgba($orange, .5) !important
 }

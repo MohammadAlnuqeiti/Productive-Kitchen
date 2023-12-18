@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Http\Requests\StoreProducteRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
+use App\Models\Order;
+
 
 use Illuminate\Http\Request;
 
@@ -73,7 +75,7 @@ class ProductController extends Controller
      }
 
 
-   
+
 
 
     /**
@@ -108,7 +110,7 @@ class ProductController extends Controller
             'data' =>  $data
         ]);
 
-    
+
     }
 
     /**
@@ -122,7 +124,7 @@ class ProductController extends Controller
         if(count(Product::all()) < $id || $id < 0){
             return redirect()->back();
         }
-        
+
         $kitchen_id = Auth()->user()->id;
         $products = Product::where('user_id' , $kitchen_id )->get();
         $categorios = Category::all();
@@ -142,7 +144,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    { 
+    {
 
         // create validation using Validator Facade
         $rules = array(
@@ -187,11 +189,11 @@ class ProductController extends Controller
                 'image.max' => ' الصورة يجب ان لا يتجاوز حجمها 2048 .',
             ];
             $validator = Validator::make($request->all(), $rules , $messages);
- 
+
             if ($validator->fails()) {
                 return back()->withErrors($validator->errors())->withInput();
             }
-     
+
             $photoName = $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('public/images', $photoName);
             $product->image=$photoName;
@@ -202,7 +204,7 @@ class ProductController extends Controller
     }
 
 
-  
+
     /**
      * Remove the specified resource from storage.
      *
@@ -210,7 +212,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {  
+    {
         Product::findorFail($id)->delete();
         return redirect()->route('kitchen.products.index');
     }
