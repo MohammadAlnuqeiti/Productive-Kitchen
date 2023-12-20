@@ -49,7 +49,7 @@ Profile
 @section('content')
 
    <!-- BREADCRUMB AREA START -->
-   <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bg="/userSide/img/bg/9.jpg">
+   <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bg="/userSide/img/bg/26.png">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -108,7 +108,7 @@ Profile
                                         </div>
                                     </div>
 
-              
+
 
                                     <div class="tab-pane fade" id="liton_tab_1_2">
                                         <div class="ltn__myaccount-tab-content-inner">

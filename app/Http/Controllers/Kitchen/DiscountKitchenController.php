@@ -20,8 +20,11 @@ class DiscountKitchenController extends Controller
     {
 
         $products=Product::where('is_sale',1)->where('user_id',Auth()->user()->id)->get();
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
-        return view('kitchenDashboard.discount.show',['products'=>$products]);
+        return view('kitchenDashboard.discount.show',['products'=>$products,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -32,8 +35,11 @@ class DiscountKitchenController extends Controller
     public function create()
     {
         $products=Product::where('user_id',Auth()->user()->id)->get();
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
-        return view('kitchenDashboard.discount.create',['products'=>$products]);
+        return view('kitchenDashboard.discount.create',['products'=>$products,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -80,7 +86,11 @@ class DiscountKitchenController extends Controller
         if($product == null){
             return redirect()->back();
         }
-        return view('kitchenDashboard.discount.edit',['product'=>$product]);
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.discount.edit',['product'=>$product,'pendingOrders'=>$pendingOrders]);
     }
 
     /**

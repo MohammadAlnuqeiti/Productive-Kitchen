@@ -52,7 +52,7 @@ Home
                                                 <p> الموقع الأول من نوعه للمطابخ الانتاجية في العقبة</p>
                                             </div>
                                             <div class="btn-wrapper animated">
-                                                <a href="shop.html" class="theme-btn-1 btn btn-effect-1 text-uppercase">تعرف أكثر على المطابخ</a>
+                                                <a href="#kitchen" class="theme-btn-1 btn btn-effect-1 text-uppercase">تعرف أكثر على المطابخ</a>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@ Home
                     <div class="col-lg-6 col-md-6">
                         <div class="ltn__banner-item">
                             <div class="ltn__banner-img">
-                                <a href="shop.html"><img src="/userSide/img/banner/13.jpeg" alt="Banner Image"></a>
+                                <a href="shop.html"><img src="/userSide/img/banner/13.png" alt="Banner Image"></a>
                             </div>
                         </div>
                     </div>
@@ -146,14 +146,14 @@ Home
                             <div class="col-lg-12">
                                 <div class="ltn__banner-item">
                                     <div class="ltn__banner-img">
-                                        <a href="shop.html"><img src="/userSide/img/banner/14.jpg" alt="Banner Image"></a>
+                                        <a href="shop.html"><img src="/userSide/img/banner/14.png" alt="Banner Image"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="ltn__banner-item">
                                     <div class="ltn__banner-img">
-                                        <a href="shop.html"><img src="/userSide/img/banner/15.jpg" alt="Banner Image"></a>
+                                        <a href="shop.html"><img src="/userSide/img/banner/15.png" alt="Banner Image"></a>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@ Home
         <!-- BANNER AREA END -->
 
           <!-- BLOG AREA START (blog-3) -->
-        <div class="ltn__blog-area pt-115 pb-70" id="kithen">
+        <div class="ltn__blog-area pt-115 pb-70" id="kitchen">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

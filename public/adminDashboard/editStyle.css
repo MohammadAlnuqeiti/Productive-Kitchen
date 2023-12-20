@@ -67,4 +67,6 @@ a:hover , .left-sidenav-menu li ul li>a:hover {
     box-shadow: 1px 1px 9px 0 rgb(128, 181, 0);
     border-radius: 4px;
 }
-
+body {
+    background-color: #ffffff;
+}

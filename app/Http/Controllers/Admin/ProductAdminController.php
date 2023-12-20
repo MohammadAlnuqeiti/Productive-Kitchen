@@ -111,15 +111,16 @@ class ProductAdminController extends Controller
      */
     public function edit($id)
     {
-        if(count(Product::all()) < $id || $id < 0){
-            return redirect()->back();
-        }
+
 
         $kitchens = User::where('role','kitchen')->get();
         $categorios = Category::all();
-
+        $product = Product::where('id',$id)->first();
+        if($product==null) {
+            return redirect()->back();
+        }
         return view('adminDashboard.product.edit', [
-            'product' => Product::findOrFail($id),
+            'product' =>$product,
             'kitchens' => $kitchens,
             'categorios' => $categorios,
         ]);

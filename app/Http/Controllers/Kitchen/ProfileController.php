@@ -42,8 +42,11 @@ class ProfileController extends Controller
         if($kitchen->isEmpty()) {
             return redirect()->back();
         }
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
-        return view('kitchenDashboard.profile.show',['data'=>$data]);
+        return view('kitchenDashboard.profile.show',['data' => $data , 'pendingOrders' => $pendingOrders]);
 
     }
 
@@ -77,7 +80,11 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::where('id', $id)->with('kitchen')->firstOrFail();
-        return view('kitchenDashboard.profile.show', ['user' => $user]);
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.profile.show', ['user' => $user , 'pendingOrders' => $pendingOrders]);
     }
 
     /**
@@ -89,7 +96,11 @@ class ProfileController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->with('kitchen')->firstOrFail();
-        return view('kitchenDashboard.profile.edit', ['user' => $user]);
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.profile.edit', ['user' => $user , 'pendingOrders' => $pendingOrders]);
 
     }
 

@@ -14,7 +14,7 @@
    <link rel="stylesheet" type="text/css" href="{{asset('adminDashboard/assets/css/metisMenu.min.css')}}">
    <link rel="stylesheet" type="text/css" href="{{asset('adminDashboard/assets/css/app-rtl.min.css')}}">
 
-   <link rel="stylesheet" type="text/css" href="{{asset('adminDashboard/test.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('adminDashboard/editStyle.css')}}">
 
    @yield('css')
 

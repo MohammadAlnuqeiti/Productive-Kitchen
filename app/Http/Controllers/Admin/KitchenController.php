@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kitchen_Details;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -145,6 +146,11 @@ class KitchenController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        User::where('id' ,$id)->forceDelete();
+
+
+        return redirect()->route('admin.kitchens.index')->with('success','Deleted completed successfully');
+
     }
 }

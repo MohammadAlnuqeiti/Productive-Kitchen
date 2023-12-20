@@ -302,7 +302,7 @@ Kitchen Details
                                                         <i class="far fa-eye"></i>
                                                     </a>
                                                 </li>
-                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                @if (Auth::check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
                                                     <li>
                                                         <a href="#">
                                                             <form action={{route("user.cart.add",$product->id)}} method="post">
@@ -407,7 +407,7 @@ Kitchen Details
                                                                                         <i class="far fa-eye"></i>
                                                                                     </a>
                                                                                 </li>
-                                                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                                                @if (Auth::check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
                                                                                     <li>
                                                                                         <a href="#">
                                                                                             <form action={{route("user.cart.add",$product->id)}} method="post">
@@ -488,7 +488,7 @@ Kitchen Details
                                                                                         <i class="far fa-eye"></i>
                                                                                     </a>
                                                                                 </li>
-                                                                                @if (Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
+                                                                                @if (Auth::check() && Auth()->user()->role !='kitchen' && Auth()->user()->role !='admin')
                                                                                     <li>
                                                                                         <a href="#">
                                                                                             <form action={{route("user.cart.add",$product->id)}} method="post">
@@ -524,9 +524,9 @@ Kitchen Details
                                                                         @endif
                                                                         <div class="product-price">
                                                                             @if($product->is_sale == 1)
-                                                                            <span>JD {{$product->price_discount}} </span>
                                                                             <del>JD {{$product->price}} </del>
                                                                             @else
+                                                                            <span>JD {{$product->price_discount}} </span>
                                                                             <span>JD {{$product->price}} </span>
                                                                             @endif
                                                                         </div>

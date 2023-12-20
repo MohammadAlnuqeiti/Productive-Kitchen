@@ -20,7 +20,7 @@
                                         <a href="{{route('home')}}">الرئيسية</a>
                                     </li>
                                     <li>
-                                        <a href="#kithen">مطابخنا</a>
+                                        <a href="http://127.0.0.1:8000/#kitchen">مطابخنا</a>
                                     </li>
                                     <li>
                                         <a href="{{route('user.shop')}}">منتجاتنا</a>

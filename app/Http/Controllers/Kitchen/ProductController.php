@@ -25,7 +25,10 @@ class ProductController extends Controller
         $kitchen_id = Auth()->user()->id;
         $products = Product::where('user_id', $kitchen_id)
                             ->get();
-        return view('kitchenDashboard.product.show', compact('products'));
+        // return pending orders
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.product.show', ['products'=>$products,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -38,7 +41,11 @@ class ProductController extends Controller
         //to show create product page
         // return view('kitchenDashboard.product.create');
         $categorios = Category::all();
-        return view('kitchenDashboard.product.create' , ['categorios' => $categorios]);
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.product.create' , ['categorios' => $categorios , 'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -105,9 +112,13 @@ class ProductController extends Controller
         if($product->isEmpty()) {
             return redirect()->back();
         }
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
         return view('kitchenDashboard.product.productDetails', [
-            'data' =>  $data
+            'data' =>  $data ,
+            'pendingOrders'=> $pendingOrders
         ]);
 
 
@@ -128,10 +139,13 @@ class ProductController extends Controller
         $kitchen_id = Auth()->user()->id;
         $products = Product::where('user_id' , $kitchen_id )->get();
         $categorios = Category::all();
+        // return pending orders
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
         return view('kitchenDashboard.product.edit', [
             'product' => Product::findOrFail($id),
-            'categorios' => $categorios,
+            'categorios' => $categorios ,
+            'pendingOrders'=>$pendingOrders
         ]);
 
     }

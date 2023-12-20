@@ -329,7 +329,7 @@ Product Details
                     </div>
                     <!-- Banner Widget -->
                     <div class="widget ltn__banner-widget">
-                        <a href="shop.html"><img src="{{URL::asset("storage/images/$image")}}" alt="image"></a>
+                        <img src="{{URL::asset("storage/images/$image")}}" alt="image">
                     </div>
                 </aside>
             </div>

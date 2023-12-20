@@ -24,8 +24,10 @@ class ReceivingProductController extends Controller
                                 ->first();
         $products = Product::where('user_id', $kitchen_id)
                             ->get();
+        // return pending orders
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
-        return view('kitchenDashboard.activeProduct.show', ['products'=>$products , 'kitchenDetails'=>$kitchenDetails]);
+        return view('kitchenDashboard.activeProduct.show', ['products'=>$products , 'kitchenDetails'=>$kitchenDetails , 'pendingOrders' => $pendingOrders]);
 
     }
 
@@ -73,7 +75,11 @@ class ReceivingProductController extends Controller
         if($product == null){
             return redirect()->back();
         }
-        return view('kitchenDashboard.activeProduct.create',['product'=>$product]);
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
+        return view('kitchenDashboard.activeProduct.create',['product'=>$product , 'pendingOrders'=>$pendingOrders]);
     }
 
     /**

@@ -18,17 +18,17 @@ class DetailsKitchenController extends Controller
      */
     public function index()
     {
-      // Retrieve all kitchen details associated with the currently authenticated user
+        // Retrieve all kitchen details associated with the currently authenticated user
         $kitchenId = Auth()->user()->id;
         $kitchenDetails = Kitchen_Details::where('user_id', $kitchenId)->get();
 
-        //
+        // return pending orders
         $kitchen_id = auth()->user()->id;
         $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
         //
         // Return the view with the kitchen details data
-        return view('kitchenDashboard.details.index', compact('kitchenDetails'));
+        return view('kitchenDashboard.details.index', ['kitchenDetails'=>$kitchenDetails,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -64,8 +64,13 @@ class DetailsKitchenController extends Controller
        // Find the kitchen detail record with the given ID
         $kitchenDetail = Kitchen_Details::findOrFail($id);
 
+
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
+
         // Return the view with the kitchen detail data
-        return view('kitchenDashboard.details.show', compact('kitchenDetail'));
+        return view('kitchenDashboard.details.show', ['kitchenDetail'=>$kitchenDetail,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -83,9 +88,12 @@ class DetailsKitchenController extends Controller
         $kitchenDetails = Kitchen_Details::where('user_id', $kitchen_id)
                                         ->where('id', $id)
                                         ->firstOrFail();
+        // return pending orders
+        $kitchen_id = auth()->user()->id;
+        $pendingOrders = Order::where('kitchen_id',$kitchen_id)->where('status','pending')->get();
 
         // Return the edit view with the kitchen details data
-        return view('kitchenDashboard.details.edit', compact('kitchenDetails'));
+        return view('kitchenDashboard.details.edit', ['kitchenDetails'=>$kitchenDetails,'pendingOrders'=>$pendingOrders]);
     }
 
     /**
@@ -97,25 +105,24 @@ class DetailsKitchenController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // Get the authenticated user's kitchen ID
-    $kitchen_id = Auth()->user()->id;
+        // Get the authenticated user's kitchen ID
+        $kitchen_id = Auth()->user()->id;
 
-    // Find the kitchen details record based on the given ID and kitchen ID
-    $kitchenDetails = Kitchen_Details::where('user_id', $kitchen_id)
-                                      ->where('id', $id)
-                                      ->firstOrFail();
+        // Find the kitchen details record based on the given ID and kitchen ID
+        $kitchenDetails = Kitchen_Details::where('user_id', $kitchen_id)
+                                        ->where('id', $id)
+                                        ->firstOrFail();
 
-    // Update the values of the kitchen details record with the new values from the request
-    $kitchenDetails->update([
-        'short_description' => $request->short_description,
-        'long_description' => $request->long_description,
-        // Update the image if a new one was uploaded
-        'image' => $request->hasFile('image') ? $request->file('image')->store('kitchen_images', 'public') : $kitchenDetails->image,
-    ]);
-
-    // Redirect the user to the index page to display the updated kitchen details
-    return redirect()->route('kitchen.details.index')->with('success2', 'Kitchen details updated successfully');
-    }
+        // Update the values of the kitchen details record with the new values from the request
+        $kitchenDetails->update([
+            'short_description' => $request->short_description,
+            'long_description' => $request->long_description,
+            // Update the image if a new one was uploaded
+            'image' => $request->hasFile('image') ? $request->file('image')->store('kitchen_images', 'public') : $kitchenDetails->image,
+        ]);
+        // Redirect the user to the index page to display the updated kitchen details
+        return redirect()->route('kitchen.details.index')->with('success2', 'Kitchen details updated successfully');
+        }
 
 
     /**

@@ -32,11 +32,11 @@ About Us
 @section('content')
 
     <!-- BREADCRUMB AREA START -->
-    <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bg="/userSide/img/bg/header.jpeg">
+    <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bg="/userSide/img/bg/header.png">
         {{-- https://www.supermama.me/system/App/Entities/Article/images/000/105/338/watermarked/7-%D9%88%D8%B5%D9%81%D8%A7%D8%AA-%D9%84%D8%A3%D9%83%D9%84%D8%A7%D8%AA-%D8%B1%D9%85%D8%B6%D8%A7%D9%86%D9%8A%D8%A9-%D8%A8%D8%A7%D9%84%D8%B5%D9%88%D8%B1-%D9%88-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D8%AF%D9%8A%D8%B1.jpg --}}
 
         {{-- //https://scontent.famm10-1.fna.fbcdn.net/v/t1.6435-9/32156579_2156640347901918_1165947663674245120_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=NHCC4ytAdHQAX8Xm8Y5&_nc_ht=scontent.famm10-1.fna&oh=00_AfCWwttzoYNrnfXPdeejH7PRaaWeArf2LimzA6w2-kBuGQ&oe=648DA1FA --}}
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -64,7 +64,7 @@ About Us
             <div class="row">
                 <div class="col-lg-6 align-self-center">
                     <div class="about-us-img-wrap about-img-left">
-                        <img src="/userSide/img/bg/about.jpeg" alt="About Us Image">
+                        <img src="/userSide/img/bg/about.png" alt="About Us Image">
                         {{-- https://i.pinimg.com/originals/13/b1/18/13b1182afa1ddac9ccfd226743e1e39c.jpg --}}
                     </div>
                 </div>
@@ -427,8 +427,8 @@ About Us
             </div>
         </div>
     </div> --}}
-    
-    
+
+
     <!-- TESTIMONIAL AREA END -->
 
     <!-- FAQ AREA START (faq-2) (ID > accordion_2) -->
